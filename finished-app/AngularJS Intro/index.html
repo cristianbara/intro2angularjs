@@ -49,10 +49,12 @@ body {
 }
 .gwd-div-1stp {
     position: absolute;
-    left: 456px;
-    top: 113px;
+    left: 50%;
+    top: 50%;
     width: 360px;
     height: 640px;
+    margin-left: -180px;
+    margin-top: -320px;
     box-shadow: rgba(0, 0, 0, 0.188235) 0px 10px 20px, rgba(0, 0, 0, 0.227451) 0px 6px 6px;
     border-radius: 6px;
     overflow: hidden;
@@ -141,9 +143,10 @@ body {
   <div class="gwd-div-1stp" id="phone">
     <div class="gwd-div-1vyq" id="title">My to-dos</div>
     <div class="gwd-div-1n6y" id="body">
-      <div ng-repeat="item in model" class="gwd-div-1g9m" ng-class="done: item.done" ng-switch="item.done" >
-          <div style="left: 2px; top:0; width: 100%, height: 100%" contentEditable="true">{{item.text}}</div>
-          
+      <div ng-repeat="item in model" class="gwd-div-1g9m" ng-class="{done: item.done == true}" ng-switch="item.done" >
+          <div style="left: 2px; top:0; width: 100%, height: 100%" contentEditable="true">
+           {{item.text}}
+          </div>          
         <div class="gwd-div-pjjz" ng-switch-when="false" ng-click="markAsDone($index)">✓</div>
         <div class="gwd-div-pjjz done-btn" ng-switch-when="true" ng-click="removeToDo($index)">x</div>
       </div>   
