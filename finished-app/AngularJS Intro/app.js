@@ -9,7 +9,7 @@ var model = [
     },
     
 ];
-angular.module('myToDoApp', [])
+angular.module('myToDoApp', ['contenteditable'])
     .controller('myToDoAppController', function($scope) {
     // controller code goes here
     
@@ -17,16 +17,23 @@ angular.module('myToDoApp', [])
     
     $scope.markAsDone = function(index) {
         $scope.model[index].done = true;
+        console.log('$scope.model:');
+        console.log($scope.model);
     }
     
     $scope.removeToDo = function(index) {
         $scope.model.splice(index, 1);
+        console.log('$scope.model:');
+        console.log($scope.model);
+        
     }
     $scope.addToDo = function() {
         var newItem = {
-            text: ' ',
+            text: '',
             done: false
         }
         $scope.model.push(newItem);
+        console.log('$scope.model:');
+        console.log($scope.model);
     }
 });
