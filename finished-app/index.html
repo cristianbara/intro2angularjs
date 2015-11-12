@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <title>AngularJS Intro</title>
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script> -->
+    <script src="angular.min.js"></script>
     <style type="text/css">
         ::-webkit-scrollbar {
             width: 12px;
@@ -159,6 +160,7 @@
             height: 100%;
         }
     </style>
+    <script src="angular-contenteditable.js"></script>
     <script src="app.js"></script>
 </head>
 
@@ -168,8 +170,8 @@
         <div class="gwd-div-1vyq" id="title">My to-dos</div>
         <div class="gwd-div-1n6y" id="body">
             <div ng-repeat="item in model" class="gwd-div-1g9m" ng-class="{done: item.done == true}" ng-switch="item.done">
-                <div class="gwd-div-text" style="" contentEditable="true">
-                    {{item.text}}
+                <div class="gwd-div-text" style="" contenteditable="true" ng-model="item.text" strip-br="true" strip-tags="true" select-non-editable="true">
+                   <!-- {{item.text}} -->
                 </div>
                 <div class="gwd-div-pjjz" ng-switch-when="false" ng-click="markAsDone($index)">✓</div>
                 <div class="gwd-div-pjjz done-btn" ng-switch-when="true" ng-click="removeToDo($index)">x</div>
